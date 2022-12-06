@@ -109,37 +109,3 @@
   <script src="work.js"></script>
   <script src="main.js"></script>
 </html>
-
-<!--
-Web Workers: Why, What, How
-
-https://developer.mozilla.org/en-US/docs/Web/API/Worker
-https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers
-https://developer.mozilla.org/en-US/docs/Web/API/Navigator/hardwareConcurrency
-https://developer.mozilla.org/en-US/docs/Web/API/Worker#browser_compatibility (check the Support for ECMAScript modules)
-https://bugzilla.mozilla.org/show_bug.cgi?id=1247687
-
--->
-
-Much has been writen on WebWorkers, not least of which Surma's thousands of words on the subject:
-
-https://www.smashingmagazine.com/2021/06/web-workers-2021/
-https://surma.dev/things/when-workers/
-https://surma.dev/things/actormodel/
-https://surma.dev/things/is-postmessage-slow/
-
-
-This is a visual explanation of why
-
-While doing work in the main thread try to:
-
-- Hover over a button
-- Click a button
-- Select text
-
-The main thread can spawn multiple workers / threads.
-A worker can also spawn other workers.
-
-CSS animations and transitions runs on a separate thread — the compositor thread — and are not affected by a blocked main thread.
-
-Browsers have shipped some mitigations for this, for example by moving the scrolling logic to a different thread under certain conditions. In general, however, if you block the main thread, your users will have a bad time.
