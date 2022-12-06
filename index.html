@@ -38,8 +38,18 @@
       animation: 1s infinite linear alternate movearound;
     }
 
+    .main-area {
+      margin-top: 1.2em;
+      max-width: 300px;
+    }
+
+    .caption {
+      font-size: 0.7em;
+    }
+
     .interactive-playground {
-      max-width: 200px;
+      margin-top: 1.2em;
+      max-width: 300px;
     }
 
     .interactive-el {
@@ -67,42 +77,56 @@
   <body>
     <div class="spinning-square"></div>
     <div class="moving-square"></div>
-    <div>
-      <button class="js-ui-work-button">Work</button>
-      <button class="js-worker-work-button">Work inside worker</button>
-    </div>
-    <div class="interactive-playground">
-      <header>Interactive Playground</header>
-      <button class="js-alert-button interactive-el">Click me</button>
-      <input class="interactive-el" type="text" placeholder="Type inside me">
-      <label class="interactive-el">Check me <input type="checkbox"></label>
-      <fieldset class="interactive-el">
-        <label>Choose one</label>
-        <input type="radio" name="my-radio">
-        <input type="radio" name="my-radio">
-      </fieldset>
-      <ol class="scrollable-area">
-        <li>Scroll me</li>
-        <li>Scroll me</li>
-        <li>Scroll me</li>
-        <li>Scroll me</li>
-        <li>Scroll me</li>
-        <li>Scroll me</li>
-        <li>Scroll me</li>
-        <li>Scroll me</li>
-        <li>Scroll me</li>
-        <li>Scroll me</li>
-        <li>Scroll me</li>
-        <li>Scroll me</li>
-        <li>Scroll me</li>
-        <li>Scroll me</li>
-        <li>Scroll me</li>
-        <li>Scroll me</li>
-        <li>Scroll me</li>
-        <li>Scroll me</li>
-        <li>Scroll me</li>
-        <li>Scroll me</li>
-      </ol>
+    <div class="main-area">
+      <div>
+        <label class="interactive-el">Work amount <input type="number" class="js-work-amount-input" /></label>
+        <button class="js-ui-work-button">Work</button>
+        <button class="js-worker-work-button">Work inside worker</button>
+        <div class="caption">Increase the work amount if the work button doesn't cause one of the squares to stop. Note: increasing the work amount too much may lock or crash your browser.</div>
+      </div>
+      <div class="interactive-playground">
+        <header>Interactive Playground</header>
+        <button class="interactive-el" onclick="alert('you clicked me!')">Click</button>
+        <label class="interactive-el">Type <input type="text" /></label>
+        <label class="interactive-el">Toggle <input type="checkbox" /></label>
+        <fieldset class="interactive-el">
+          <label>Choose</label>
+          <input type="radio" name="my-radio" />
+          <input type="radio" name="my-radio" />
+        </fieldset>
+        <ol class="scrollable-area">
+          <li>Scroll me</li>
+          <li>Scroll me</li>
+          <li>Scroll me</li>
+          <li>Scroll me</li>
+          <li>Scroll me</li>
+          <li>Scroll me</li>
+          <li>Scroll me</li>
+          <li>Scroll me</li>
+          <li>Scroll me</li>
+          <li>Scroll me</li>
+          <li>Scroll me</li>
+          <li>Scroll me</li>
+          <li>Scroll me</li>
+          <li>Scroll me</li>
+          <li>Scroll me</li>
+          <li>Scroll me</li>
+          <li>Scroll me</li>
+          <li>Scroll me</li>
+          <li>Scroll me</li>
+          <li>Scroll me</li>
+          <li>Scroll me</li>
+          <li>Scroll me</li>
+          <li>Scroll me</li>
+          <li>Scroll me</li>
+          <li>Scroll me</li>
+          <li>Scroll me</li>
+          <li>Scroll me</li>
+          <li>Scroll me</li>
+          <li>Scroll me</li>
+          <li>Scroll me</li>
+        </ol>
+      </div>
     </div>
 
   </body>
