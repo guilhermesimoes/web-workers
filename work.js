@@ -1,6 +1,6 @@
 self.count = 0
 
-function doWork(workAmount, source) {
+export function doWork(workAmount, source) {
   let start = Date.now()
   console.log(`${source}: work started`)
 

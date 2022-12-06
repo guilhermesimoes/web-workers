@@ -1,5 +1,6 @@
 console.log('Worker: starting to be evaluated')
-importScripts('./work.js')
+
+import { doWork } from './work.js'
 
 self.addEventListener('message', (event) => {
   let workAmount = event.data
