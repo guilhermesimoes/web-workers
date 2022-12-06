@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <style>
+    @keyframes spinaround {
+      to {
+        transform: rotate3d(0, 0, 1, 360deg);
+      }
+    }
+
+    @keyframes movearound {
+      to {
+        margin-left: 100px;
+        // transform: translateX(100px);
+      }
+    }
+
+    html {
+      font-family: system-ui;
+    }
+
+    .spinning-square {
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      background-color: steelblue;
+      animation: 3s infinite linear spinaround;
+      transform-origin: center;
+    }
+
+    .moving-square {
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      background-color: indianred;
+      animation: 1s infinite linear alternate movearound;
+    }
+
+    .interactive-playground {
+      max-width: 200px;
+    }
+
+    .interactive-el {
+      display: block;
+    }
+
+    label.interactive-el {
+      cursor: pointer;
+      user-select: none;
+    }
+
+    fieldset.interactive-el {
+      margin: 0;
+      padding: 0;
+      border: none;
+    }
+
+    .scrollable-area {
+      margin: 0;
+      height: 5em;
+      overflow-y: scroll;
+      background-color: gainsboro;
+    }
+  </style>
+  <body>
+    <div class="spinning-square"></div>
+    <div class="moving-square"></div>
+    <div>
+      <button class="js-ui-work-button">Work</button>
+      <button class="js-worker-work-button">Work inside worker</button>
+    </div>
+    <div class="interactive-playground">
+      <header>Interactive Playground</header>
+      <button class="js-alert-button interactive-el">Click me</button>
+      <input class="interactive-el" type="text" placeholder="Type inside me">
+      <label class="interactive-el">Check me <input type="checkbox"></label>
+      <fieldset class="interactive-el">
+        <label>Choose one</label>
+        <input type="radio" name="my-radio">
+        <input type="radio" name="my-radio">
+      </fieldset>
+      <ol class="scrollable-area">
+        <li>Scroll me</li>
+        <li>Scroll me</li>
+        <li>Scroll me</li>
+        <li>Scroll me</li>
+        <li>Scroll me</li>
+        <li>Scroll me</li>
+        <li>Scroll me</li>
+        <li>Scroll me</li>
+        <li>Scroll me</li>
+        <li>Scroll me</li>
+        <li>Scroll me</li>
+        <li>Scroll me</li>
+        <li>Scroll me</li>
+        <li>Scroll me</li>
+        <li>Scroll me</li>
+        <li>Scroll me</li>
+        <li>Scroll me</li>
+        <li>Scroll me</li>
+        <li>Scroll me</li>
+        <li>Scroll me</li>
+      </ol>
+    </div>
+
+  </body>
+  <script src="work.js"></script>
+  <script src="main.js"></script>
+</html>
+
+<!--
+Web Workers: Why, What, How
+
+https://developer.mozilla.org/en-US/docs/Web/API/Worker
+https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers
+https://developer.mozilla.org/en-US/docs/Web/API/Navigator/hardwareConcurrency
+https://developer.mozilla.org/en-US/docs/Web/API/Worker#browser_compatibility (check the Support for ECMAScript modules)
+https://bugzilla.mozilla.org/show_bug.cgi?id=1247687
+
+-->
+
+Much has been writen on WebWorkers, not least of which Surma's thousands of words on the subject:
+
+https://www.smashingmagazine.com/2021/06/web-workers-2021/
+https://surma.dev/things/when-workers/
+https://surma.dev/things/actormodel/
+https://surma.dev/things/is-postmessage-slow/
+
+
+This is a visual explanation of why
+
+While doing work in the main thread try to:
+
+- Hover over a button
+- Click a button
+- Select text
+
+The main thread can spawn multiple workers / threads.
+A worker can also spawn other workers.
+
+CSS animations and transitions runs on a separate thread — the compositor thread — and are not affected by a blocked main thread.
+
+Browsers have shipped some mitigations for this, for example by moving the scrolling logic to a different thread under certain conditions. In general, however, if you block the main thread, your users will have a bad time.
